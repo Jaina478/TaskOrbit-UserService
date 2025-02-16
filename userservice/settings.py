@@ -73,26 +73,30 @@ WSGI_APPLICATION = "userservice.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+import os
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'taskorbit_users',  # Change for each microservice
-        'USER': 'root',
-        'PASSWORD': 'yourpassword',
-        'HOST': 'localhost',  # 'db' if using Docker
-        'PORT': '3306',
+        'NAME': os.getenv('MYSQL_DATABASE', 'taskorbit_users'),  # Change per service
+        'USER': os.getenv('MYSQL_USER', 'root'),
+        'PASSWORD': os.getenv('MYSQL_PASSWORD', 'root1234'),
+        'HOST': os.getenv('MYSQL_HOST', 'mysql-db'),  # Use service name in Docker
+        'PORT': os.getenv('MYSQL_PORT', '3306'),
     }
 }
+
 
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': 'redis://127.0.0.1:6379/1',  # Change database index per service
+        'LOCATION': 'redis://redis:6379/1',  # Use 'redis' as the service name in Docker
         'OPTIONS': {
             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
         }
     }
 }
+
 
 
 # Password validation
