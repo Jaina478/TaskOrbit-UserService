@@ -78,11 +78,11 @@ import os
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv('MYSQL_DATABASE', 'taskorbit_users'),  # Change per service
-        'USER': os.getenv('MYSQL_USER', 'root'),
-        'PASSWORD': os.getenv('MYSQL_PASSWORD', 'yourpassword'),
-        'HOST': os.getenv('MYSQL_HOST', 'mysql-db'),  # Use service name in Docker
-        'PORT': os.getenv('MYSQL_PORT', '3306'),
+        'NAME': os.getenv('MYSQL_DATABASE'),  # Change per service
+        'USER': os.getenv('MYSQL_USER'),
+        'PASSWORD': os.getenv('MYSQL_PASSWORD'),
+        'HOST': os.getenv('MYSQL_HOST'),  # Use service name in Docker
+        'PORT': os.getenv('MYSQL_PORT'),
     }
 }
 
