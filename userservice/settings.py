@@ -80,7 +80,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': os.getenv('MYSQL_DATABASE', 'taskorbit_users'),  # Change per service
         'USER': os.getenv('MYSQL_USER', 'root'),
-        'PASSWORD': os.getenv('MYSQL_PASSWORD', 'root1234'),
+        'PASSWORD': os.getenv('MYSQL_PASSWORD', 'yourpassword'),
         'HOST': os.getenv('MYSQL_HOST', 'mysql-db'),  # Use service name in Docker
         'PORT': os.getenv('MYSQL_PORT', '3306'),
     }
