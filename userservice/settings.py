@@ -26,6 +26,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "rest_framework",
+    "rest_framework_simplejwt",
+    "authentication"
 ]
 
 # Middleware
@@ -42,6 +45,7 @@ MIDDLEWARE = [
 # URL and WSGI settings
 ROOT_URLCONF = "userservice.urls"
 WSGI_APPLICATION = "userservice.wsgi.application"
+
 # Rest framworks
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
